@@ -42,12 +42,13 @@ Hi2All. I'm junior Frontend developer and graphic designer. I love to code and k
 ```
 
 ## Experience
-* https://smart-device.surge.sh/ 
-* http://bike_shop.surge.sh/
+* [Smart-device](https://github.com/miumio/smart-device)
+* [Bike shop](https://github.com/miumio/Bike_shop)
+* [Mishka](https://github.com/miumio/1458863-mishka-20)
 
 ## Education
 * VASHGD High School of graphic art (Tagir's Safaev creative workshop)
-* [HTML Academy] (https://htmlacademy.ru/profile/id1458863)
+* [HTML Academy](https://htmlacademy.ru/profile/id1458863)
 
 ## Languages 
  * Russian native

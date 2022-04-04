@@ -1,44 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>CV miumio</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <h1>CV</h1>
-        <nav>
-          <h2>miumio</h2>
-          <a href="#contacts">contact me</a>
-          <button type="button" class="burger" aria-label="Menu"></button>
-        </nav>
-      </header>
-      <main>
-        <h3>Education</h3>
-        <div class="row">
-          <span>2021-now</span>
-          <a href="#">RS School</a>
-          <span>online</span>
-        </div>
-        <div class="row">
-          <span>2020-2021</span>
-          <a href="https://htmlacademy.ru/profile/id1458863" target="blanc"
-            >HTML Academy</a
-          >
-          <span>online</span>
-        </div>
-        <div class="row">
-          <span>2008-2011</span>
-          <p>
-            VASHGD High School of graphic art (Tagir’s Safaev creative workshop)
-          </p>
-          <span>Russia, Moscow</span>
-        </div>
-        <h3>Skills</h3>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>CV miumio</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#" class="nav__link link">
+              <svg width="16" height="16">
+                <use xlink:href="./sprite.svg#github"></use>
+              </svg>
+              miumio
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="mailto:nickolskaya@gmail.com" class="nav__link link">nickolskaya@gmail.com</a>
+          </li>
+          <li class="nav__item">
+            <a href="https://www.facebook.com/nickolskaya" class="nav__link link"
+              target="_blanc">
+              <svg width="16" height="16">
+                <use xlink:href="./sprite.svg#fb"></use>
+              </svg>
+              https://www.facebook.com/nickolskaya
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="tel:+201280854737" class="nav__link link">+201280854737</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link link">Egypt, Dahab</a>
+          </li>
+        </ul>
+      </nav>
+      <h1 class="title">Asya Nikolskaya</h1>
+      <p class="subtitle">Hello!, I’m junior Frontend developer and graphic designer.</p>
+    </header>
+    <main class="main">
+      <section class="education">
+        <h2 class="title">Education</h2>
+        <ul class="education__list">
+          <li class="education__item">
+            <span class="education__date">2021-now</span>
+            <a href="#" class="link">RS School</a>
+            <span>online</span>  
+          </li>
+          <li class="education__item">
+            <span class="education__date">2020-2021</span>
+            <a href="https://htmlacademy.ru/profile/id1458863" target="blanc" class="link">HTML Academy</a>
+            <span>online</span>
+          </li>
+          <li class="education__item">
+            <span class="education__date">2008-2011</span>
+            <a href="#" class="link">
+              VASHGD High School of graphic art (Tagir’s Safaev creative workshop)
+            </a>
+            <span>Russia, Moscow</span>
+          </li>
+        </ul>
+      </section>
+      <section class="skills">
+        <h2 class="title">Skills</h2>
         <div class="row">
           <span>HTML5, CSS3</span>
           <span>BEM</span>
@@ -49,64 +80,78 @@
           <span>Wordpress</span>
           <span>Figma, Adobe Photoshop, Adobe Illustartor, Adobe InDesign</span>
         </div>
-        <h3>Code example</h3>
-        <pre>
-                const links = document.querySelectorAll('.js-scroll');
+      </section>
+      <h3 class="title">Code example</h3>
+      <pre>
+        const initMenu = () => {
+          const header = document.querySelector('.page-header');
+          window.scrollLock = new ScrollLock();
+        
+          if (header) {
+            const toggler = header.querySelector('.toggler');
+            const menu = header.querySelector('.menu');
+            const btn = header.querySelector('.menu__toggler');
+        
+            const toggleMenu = () => {
+              toggler.classList.toggle('is-active');
+              const isActive = menu.classList.toggle('is-active');
+              btn.setAttribute(
+                  'aria-label',
+                  btn.dataset[isActive ? 'opened' : 'closed']
+              );
+            };
+        
+            header.addEventListener('click', (ev) => {
+              if (ev.target.closest('.js-toggler')) {
+                toggleMenu();
+              }
+        
+              if (menu.classList.contains('is-active') && breakpointMd.matches) {
+                window.scrollLock.disableScrolling();
+              } else {
+                window.scrollLock.enableScrolling();
+              }
+            });
+          }
+        };
+            </pre>
+      <h2 class="title">Experience</h2>
+      <div class="row">
+        <a href="https://github.com/miumio/smart-device">
+          <svg width="25" height="25">
+            <use xlink:href="./sprite.svg#github"></use>
+          </svg>
+        </a>
+        <a href="http://smart-device.surge.sh/">Smart device</a>
+        <p>HTML, SASS, JS</p>
+      </div>
+      <div class="row">
+        <a href="https://github.com/miumio/Bike_shop">
+          <svg width="25" height="25">
+            <use xlink:href="./sprite.svg#github"></use>
+          </svg>
+        </a>
+        <a href="http://bike_shop.surge.sh/">Bike shop</a>
+        <p>HTML, SASS, JS</p>
+      </div>
+      <div class="row">
+        <a href="https://github.com/miumio/1458863-mishka-20">
+          <svg width="25" height="25">
+            <use xlink:href="./sprite.svg#github"></use>
+          </svg>
+        </a>
+        <a href="#">Mishka</a>
+        <p>HTML, LESS, JS</p>
+      </div>
+      <h2 class="title">Languages</h2>
+      <div class="row">
+        <p>Russian (native)</p>
+        <p>English (A2)</p>
+        <p>Arabic(basic)</p>
+      </div>
+    </main>
+    <footer></footer>
+  </div>
+</body>
 
-                links.forEach((item) => {
-                item.addEventListener('click', function (evt) {
-                evt.preventDefault();
-                
-                const hash = this.href.replace(/[^#]*(.*)/, '$1');
-                const href = item.getAttribute('href').substr(1);
-                const el = document.querySelector(hash);
-                
-                if (!el) return;
-                
-                document.getElementById(href).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                    });
-                });
-                });
-            </pre
-        >
-        <h3>Experience</h3>
-        <div class="row">
-          <a href="https://github.com/miumio/smart-device">
-            <svg width="25" height="25">
-              <use xlink:href="./sprite.svg#github"></use>
-            </svg>
-          </a>
-          <a href="http://smart-device.surge.sh/">Smart device</a>
-          <p>HTML, SASS, JS</p>
-        </div>
-        <div class="row">
-          <a href="https://github.com/miumio/Bike_shop">
-            <svg width="25" height="25">
-              <use xlink:href="./sprite.svg#github"></use>
-            </svg>
-          </a>
-          <a href="http://bike_shop.surge.sh/">Bike shop</a>
-          <p>HTML, SASS, JS</p>
-        </div>
-        <div class="row">
-          <a href="https://github.com/miumio/1458863-mishka-20">
-            <svg width="25" height="25">
-              <use xlink:href="./sprite.svg#github"></use>
-            </svg>
-          </a>
-          <a href="#">Mishka</a>
-          <p>HTML, LESS, JS</p>
-        </div>
-        <h3>Languages</h3>
-        <div class="row">
-          <p>Russian (native)</p>
-          <p>English (A2)</p>
-          <p>Arabic(basic)</p>
-        </div>
-      </main>
-      <footer></footer>
-    </div>
-  </body>
 </html>
